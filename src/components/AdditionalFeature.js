@@ -1,13 +1,24 @@
 import React from 'react';
+import AdditionalFeature from './AdditionalFeature';
 
-const AdditionalFeature = props => {
+const AdditionalFeatures = props => {
   return (
-    <li>
-      {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button">Add</button>
-      {props.feature.name} (+{props.feature.price})
-    </li>
+    <div className="content">
+      <h4>Additional Features</h4>
+      {props.additionalFeatures.length ? (
+        <ol type="1">
+          {props.additionalFeatures.map(item => (
+            <AdditionalFeature key={item.id} feature={item} addFeature={props.addFeature} />
+          ))}
+        </ol>
+      ) : (
+        <p>Nice looking car!</p>
+      )}
+    </div>
   );
 };
 
-export default AdditionalFeature;
+export default AdditionalFeatures;
+
+
+{/* Add an onClick that will let you add a feature to your car */}
